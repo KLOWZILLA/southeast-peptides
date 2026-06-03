@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Southeast Peptides black and white research vial mockup</title>
+  <desc id="desc">A monochrome laboratory background with a black and white research peptide vial label based on the supplied design.</desc>
+  <rect width="1400" height="760" fill="#fff"/>
+  <g opacity="0.18" stroke="#000" fill="none" stroke-width="4">
+    <path d="M0 160h1400M0 360h1400M0 560h1400"/>
+    <path d="M90 110h250v120H90zM410 90h170v150H410zM660 120h280v110H660zM1020 80h260v160h-260z"/>
+    <path d="M125 330h100v170H125zM270 300h130v200H270zM980 315h115v185H980zM1140 300h150v200h-150z"/>
+    <path d="M550 470c70-75 160-75 230 0M580 505h170M610 540h110"/>
+    <path d="M80 650h1240"/>
+  </g>
+  <g transform="translate(472 82)">
+    <path d="M110 0h280v78c0 22 22 42 43 56 39 27 62 72 62 118v332c0 38-31 69-69 69H74c-38 0-69-31-69-69V252c0-46 23-91 62-118 21-14 43-34 43-56V0z" fill="#fff" stroke="#000" stroke-width="8"/>
+    <rect x="129" y="0" width="242" height="72" fill="#fff" stroke="#000" stroke-width="8"/>
+    <rect x="38" y="248" width="424" height="250" rx="16" fill="#fff" stroke="#000" stroke-width="7"/>
+    <line x1="38" y1="342" x2="462" y2="342" stroke="#000" stroke-width="7"/>
+    <text x="62" y="318" font-family="Courier Prime, Courier New, monospace" font-size="54" font-weight="700" fill="#000">Retatrutide</text>
+    <text x="68" y="394" font-family="Courier Prime, Courier New, monospace" font-size="31" fill="#000">30mg</text>
+    <text x="68" y="440" font-family="Courier Prime, Courier New, monospace" font-size="29" fill="#000">Batch number: 258042</text>
+    <text x="68" y="486" font-family="Courier Prime, Courier New, monospace" font-size="29" fill="#000">For research use only</text>
+  </g>
+  <g transform="translate(70 54)" font-family="Courier Prime, Courier New, monospace" fill="#000">
+    <text x="0" y="0" font-size="28" font-weight="700">SOUTHEAST PEPTIDES / RUO VISUAL</text>
+    <text x="0" y="42" font-size="18">IN VITRO LABORATORY RESEARCH USE ONLY</text>
+  </g>
+  <g transform="translate(70 690)" font-family="Courier Prime, Courier New, monospace" fill="#000">
+    <text x="0" y="0" font-size="18">NO HUMAN OR ANIMAL USE / NO ADMINISTRATION EQUIPMENT / NO THERAPEUTIC CLAIMS</text>
+  </g>
+</svg>
