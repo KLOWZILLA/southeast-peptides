@@ -289,6 +289,19 @@
       background: var(--color-bg);
     }
 
+    .product-visual {
+      border: 2px solid var(--color-border);
+      margin: 1.25rem 0;
+      background: var(--color-bg);
+    }
+
+    .product-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: grayscale(1) contrast(1.08);
+    }
+
     table {
       width: 100%;
       min-width: 920px;
@@ -331,6 +344,57 @@
     }
 
     .coa-link:hover { background: var(--color-surface); }
+
+    .order-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .order-controls select {
+      width: auto;
+      min-width: 96px;
+      padding: 0.45rem;
+      margin: 0;
+    }
+
+    .cart-list,
+    .payment-grid {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .cart-item,
+    .wallet-line {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      align-items: center;
+      border: 2px solid var(--color-border);
+      padding: 0.75rem;
+      background: var(--color-bg);
+    }
+
+    .checkout-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .payment-panel {
+      border: 2px solid var(--color-border);
+      padding: 1rem;
+      margin-top: 1rem;
+      background: var(--color-surface);
+    }
+
+    .mono-code {
+      overflow-wrap: anywhere;
+      font-weight: 700;
+    }
 
     .checkout-box,
     .notice-box {
@@ -460,7 +524,11 @@
       header { position: static; }
 
       .grid-two,
-      .grid-three { grid-template-columns: 1fr; }
+      .grid-three,
+      .checkout-fields { grid-template-columns: 1fr; }
+
+      .cart-item,
+      .wallet-line { grid-template-columns: 1fr; }
 
       .hero { min-height: auto; }
 
@@ -530,7 +598,7 @@
         <div class="grid-three" aria-label="Research supply summary">
           <article class="panel">
             <h3>Who we supply</h3>
-            <p>Research laboratories, institutions, and qualified professionals only.</p>
+            <p>Research laboratories, institutions, qualified professionals, and independent qualified researchers only.</p>
           </article>
           <article class="panel">
             <h3>Documentation</h3>
@@ -580,9 +648,12 @@
         <p class="section-kicker">Product catalogue</p>
         <h2 id="catalogue-title">Chemical data only</h2>
         <p class="lead">No therapeutic, cosmetic, dosage, reconstitution, administration, or human-use guidance is provided.</p>
+        <figure class="product-visual" aria-label="Black and white research vial product visual on a lab background">
+          <img src="assets/sep-vial-lab.svg" alt="Black and white Southeast Peptides research vial mockup in a laboratory setting">
+        </figure>
         <div class="table-wrap" role="region" aria-label="Research peptide catalogue" tabindex="0">
           <table>
-            <caption class="sr-only">Catalogue of research-use-only peptide materials with chemical reference data.</caption>
+            <caption class="sr-only">Catalogue of research-use-only peptide materials with chemical reference data and selectable order controls.</caption>
             <thead>
               <tr>
                 <th scope="col">Compound name</th>
@@ -590,50 +661,156 @@
                 <th scope="col">MW</th>
                 <th scope="col">Purity %</th>
                 <th scope="col">Storage</th>
-                <th scope="col">CoA download</th>
+                <th scope="col">CoA</th>
+                <th scope="col">Order</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Research Peptide A</td>
-                <td>000000-00-0</td>
-                <td>0000.00 g/mol</td>
+                <td>Retatrutide</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
                 <td>≥ 98%</td>
                 <td>-20°C, dry, protected from light</td>
-                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Research Peptide A">Request CoA</a></td>
-                <td><span class="stamp">RUO — NOT FOR HUMAN USE</span></td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Retatrutide">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-retatrutide">Retatrutide quantity</label><select id="qty-retatrutide" aria-label="Retatrutide quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Retatrutide" data-sku="SEP-RETA" data-price="0" data-qty="qty-retatrutide">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
               </tr>
               <tr>
-                <td>Research Peptide B</td>
-                <td>000000-00-0</td>
-                <td>0000.00 g/mol</td>
+                <td>Tirzepatide</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
                 <td>≥ 98%</td>
                 <td>-20°C, dry, protected from light</td>
-                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Research Peptide B">Request CoA</a></td>
-                <td><span class="stamp">RUO — NOT FOR HUMAN USE</span></td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Tirzepatide">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-tirzepatide">Tirzepatide quantity</label><select id="qty-tirzepatide" aria-label="Tirzepatide quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Tirzepatide" data-sku="SEP-TIRZ" data-price="0" data-qty="qty-tirzepatide">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
               </tr>
               <tr>
-                <td>Research Peptide C</td>
-                <td>000000-00-0</td>
-                <td>0000.00 g/mol</td>
+                <td>BPC-157</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
                 <td>≥ 98%</td>
                 <td>-20°C, dry, protected from light</td>
-                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Research Peptide C">Request CoA</a></td>
-                <td><span class="stamp">RUO — NOT FOR HUMAN USE</span></td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for BPC-157">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-bpc157">BPC-157 quantity</label><select id="qty-bpc157" aria-label="BPC-157 quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="BPC-157" data-sku="SEP-BPC157" data-price="0" data-qty="qty-bpc157">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
+              </tr>
+              <tr>
+                <td>TB-500</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
+                <td>≥ 98%</td>
+                <td>-20°C, dry, protected from light</td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for TB-500">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-tb500">TB-500 quantity</label><select id="qty-tb500" aria-label="TB-500 quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="TB-500" data-sku="SEP-TB500" data-price="0" data-qty="qty-tb500">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
+              </tr>
+              <tr>
+                <td>Melanotan I</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
+                <td>≥ 98%</td>
+                <td>-20°C, dry, protected from light</td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Melanotan I">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-melanotan1">Melanotan I quantity</label><select id="qty-melanotan1" aria-label="Melanotan I quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Melanotan I" data-sku="SEP-MT1" data-price="0" data-qty="qty-melanotan1">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
+              </tr>
+              <tr>
+                <td>Melanotan II</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
+                <td>≥ 98%</td>
+                <td>-20°C, dry, protected from light</td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Melanotan II">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-melanotan2">Melanotan II quantity</label><select id="qty-melanotan2" aria-label="Melanotan II quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Melanotan II" data-sku="SEP-MT2" data-price="0" data-qty="qty-melanotan2">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
+              </tr>
+              <tr>
+                <td>Selank</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
+                <td>≥ 98%</td>
+                <td>-20°C, dry, protected from light</td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Selank">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-selank">Selank quantity</label><select id="qty-selank" aria-label="Selank quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Selank" data-sku="SEP-SELANK" data-price="0" data-qty="qty-selank">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
+              </tr>
+              <tr>
+                <td>Semax</td>
+                <td>See CoA</td>
+                <td>See CoA</td>
+                <td>≥ 98%</td>
+                <td>-20°C, dry, protected from light</td>
+                <td><a class="coa-link" href="#contact" aria-label="Request CoA for Semax">Request CoA</a></td>
+                <td><div class="order-controls"><label class="sr-only" for="qty-semax">Semax quantity</label><select id="qty-semax" aria-label="Semax quantity"><option value="1">1 unit</option><option value="2">2 units</option><option value="5">5 units</option><option value="10">10 units</option></select><button class="secondary add-product" type="button" data-name="Semax" data-sku="SEP-SEMAX" data-price="0" data-qty="qty-semax">Add</button></div></td>
+                <td><span class="stamp">AVAILABLE / RUO — NOT FOR HUMAN USE</span></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="checkout-box" aria-labelledby="checkout-title">
-          <h3 id="checkout-title">Simulated checkout declaration</h3>
-          <p>This prototype blocks checkout progression until the research-use-only declaration is accepted.</p>
+          <h3 id="checkout-title">Researcher checkout</h3>
+          <p>Independent qualified researchers may request purchase by selecting research materials, completing the declaration, and choosing a crypto payment rail. This static prototype does not transmit orders or process payment until connected to a backend and wallet/payment processor.</p>
+
+          <div class="cart-list" id="cartList" aria-live="polite">
+            <div class="cart-item">
+              <span>No research materials selected.</span>
+              <span>AUD $0</span>
+            </div>
+          </div>
+
+          <div class="checkout-fields">
+            <div>
+              <label for="buyerName">Researcher name</label>
+              <input id="buyerName" name="buyerName" type="text" autocomplete="name" placeholder="Required before payment">
+            </div>
+            <div>
+              <label for="buyerEmail">Email</label>
+              <input id="buyerEmail" name="buyerEmail" type="email" autocomplete="email" placeholder="Required before payment">
+            </div>
+            <div>
+              <label for="buyerAffiliation">Affiliation / lab / independent researcher ID</label>
+              <input id="buyerAffiliation" name="buyerAffiliation" type="text" autocomplete="organization" placeholder="Required before payment">
+            </div>
+            <div>
+              <label for="paymentCurrency">Crypto payment</label>
+              <select id="paymentCurrency" name="paymentCurrency">
+                <option value="USDT-TRC20">USDT — TRC20</option>
+                <option value="USDT-ERC20">USDT — ERC20</option>
+                <option value="BTC">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+              </select>
+            </div>
+          </div>
+
           <div class="checkbox-row">
             <input type="checkbox" id="ruoConfirm" aria-describedby="ruoText">
             <label for="ruoConfirm" id="ruoText">I confirm I am a qualified researcher and these products will be used for in vitro laboratory research purposes only. I accept full legal responsibility under the Therapeutic Goods Act 1989 (Cth).</label>
           </div>
-          <button class="primary" id="checkoutButton" type="button" disabled>Proceed to research order request</button>
-          <p class="muted" id="checkoutStatus" role="status" aria-live="polite">Declaration required before proceeding.</p>
+          <button class="primary" id="checkoutButton" type="button" disabled>Generate crypto payment instructions</button>
+          <p class="muted" id="checkoutStatus" role="status" aria-live="polite">Select at least one item and complete the RUO declaration before payment.</p>
+
+          <div class="payment-panel" id="paymentPanel" hidden>
+            <h3>Crypto payment instructions</h3>
+            <p>Order reference: <span class="mono-code" id="orderRef">SEP-000000</span></p>
+            <div class="payment-grid">
+              <div class="wallet-line">
+                <span>Selected rail</span>
+                <span class="mono-code" id="selectedRail">USDT — TRC20</span>
+              </div>
+              <div class="wallet-line">
+                <span>Amount due</span>
+                <span class="mono-code" id="amountDue">AUD $0</span>
+              </div>
+              <div class="wallet-line">
+                <span>Wallet address</span>
+                <span class="mono-code" id="walletAddress">[ADD WALLET ADDRESS]</span>
+              </div>
+            </div>
+            <p class="muted">Replace placeholder wallet addresses with your live crypto payment processor or controlled wallet before accepting real orders. Manual review should happen before fulfilment.</p>
+          </div>
         </div>
       </section>
 
@@ -691,7 +868,7 @@
       <section id="contact" aria-labelledby="contact-title">
         <p class="section-kicker">Contact</p>
         <h2 id="contact-title">Research enquiry</h2>
-        <p class="lead">Use this form for institutional, documentation, and research supply enquiries only. Medical, dosage, reconstitution, administration, or human-use queries cannot be answered.</p>
+        <p class="lead">Use this form for documentation, qualified researcher, and research supply enquiries only. Medical, dosage, reconstitution, administration, or human-use queries cannot be answered.</p>
         <form id="contactForm" action="#contact" method="post">
           <div>
             <label for="name">Name</label>
@@ -732,6 +909,24 @@
       var ruoConfirm = document.getElementById('ruoConfirm');
       var checkoutButton = document.getElementById('checkoutButton');
       var checkoutStatus = document.getElementById('checkoutStatus');
+      var cartList = document.getElementById('cartList');
+      var buyerName = document.getElementById('buyerName');
+      var buyerEmail = document.getElementById('buyerEmail');
+      var buyerAffiliation = document.getElementById('buyerAffiliation');
+      var paymentCurrency = document.getElementById('paymentCurrency');
+      var paymentPanel = document.getElementById('paymentPanel');
+      var orderRef = document.getElementById('orderRef');
+      var selectedRail = document.getElementById('selectedRail');
+      var amountDue = document.getElementById('amountDue');
+      var walletAddress = document.getElementById('walletAddress');
+      var addProductButtons = document.querySelectorAll('.add-product');
+      var cart = [];
+      var walletMap = {
+        'USDT-TRC20': '[ADD USDT TRC20 WALLET ADDRESS]',
+        'USDT-ERC20': '[ADD USDT ERC20 WALLET ADDRESS]',
+        'BTC': '[ADD BITCOIN WALLET ADDRESS]',
+        'ETH': '[ADD ETHEREUM WALLET ADDRESS]'
+      };
       var contactForm = document.getElementById('contactForm');
       var formStatus = document.getElementById('formStatus');
       var year = document.getElementById('year');
@@ -778,13 +973,87 @@
         themeToggle.setAttribute('aria-pressed', String(!isDark));
       });
 
-      ruoConfirm.addEventListener('change', function () {
-        checkoutButton.disabled = !ruoConfirm.checked;
-        checkoutStatus.textContent = ruoConfirm.checked ? 'Declaration accepted for this simulated order request.' : 'Declaration required before proceeding.';
+      function getCartTotal() {
+        return cart.reduce(function (sum, item) {
+          return sum + (item.price * item.quantity);
+        }, 0);
+      }
+
+      function researcherFieldsComplete() {
+        return buyerName.value.trim() && buyerEmail.value.trim() && buyerAffiliation.value.trim();
+      }
+
+      function updateCheckoutState() {
+        var hasCart = cart.length > 0;
+        var declarationAccepted = ruoConfirm.checked;
+        var fieldsComplete = researcherFieldsComplete();
+        checkoutButton.disabled = !(hasCart && declarationAccepted && fieldsComplete);
+        if (!hasCart) {
+          checkoutStatus.textContent = 'Select at least one item and complete the RUO declaration before payment.';
+        } else if (!fieldsComplete) {
+          checkoutStatus.textContent = 'Enter researcher details before generating payment instructions.';
+        } else if (!declarationAccepted) {
+          checkoutStatus.textContent = 'RUO declaration required before payment.';
+        } else {
+          checkoutStatus.textContent = 'Ready to generate crypto payment instructions.';
+        }
+      }
+
+      function renderCart() {
+        if (!cart.length) {
+          cartList.innerHTML = '<div class="cart-item"><span>No research materials selected.</span><span>AUD $0</span></div>';
+          updateCheckoutState();
+          return;
+        }
+        cartList.innerHTML = cart.map(function (item, index) {
+          var lineTotal = item.price * item.quantity;
+          return '<div class="cart-item"><span>' + item.name + ' / ' + item.sku + ' / qty ' + item.quantity + '</span><button class="secondary remove-product" type="button" data-index="' + index + '">Remove — quote</button></div>';
+        }).join('') + '<div class="cart-item"><strong>Total</strong><strong>Quote required</strong></div>';
+        Array.prototype.forEach.call(document.querySelectorAll('.remove-product'), function (button) {
+          button.addEventListener('click', function () {
+            cart.splice(Number(button.getAttribute('data-index')), 1);
+            paymentPanel.hidden = true;
+            renderCart();
+          });
+        });
+        updateCheckoutState();
+      }
+
+      Array.prototype.forEach.call(addProductButtons, function (button) {
+        button.addEventListener('click', function () {
+          var quantitySelect = document.getElementById(button.getAttribute('data-qty'));
+          var quantity = Number(quantitySelect.value || 1);
+          var existing = cart.find(function (item) { return item.sku === button.getAttribute('data-sku'); });
+          if (existing) {
+            existing.quantity += quantity;
+          } else {
+            cart.push({
+              name: button.getAttribute('data-name'),
+              sku: button.getAttribute('data-sku'),
+              price: Number(button.getAttribute('data-price')),
+              quantity: quantity
+            });
+          }
+          paymentPanel.hidden = true;
+          renderCart();
+        });
+      });
+
+      ruoConfirm.addEventListener('change', updateCheckoutState);
+      [buyerName, buyerEmail, buyerAffiliation, paymentCurrency].forEach(function (field) {
+        field.addEventListener('input', updateCheckoutState);
+        field.addEventListener('change', updateCheckoutState);
       });
 
       checkoutButton.addEventListener('click', function () {
-        checkoutStatus.textContent = 'Research order request simulation complete. Connect a compliant checkout backend before accepting real orders.';
+        var ref = 'SEP-' + String(Date.now()).slice(-6);
+        var rail = paymentCurrency.value;
+        orderRef.textContent = ref;
+        selectedRail.textContent = rail;
+        amountDue.textContent = getCartTotal() > 0 ? 'AUD $' + getCartTotal() : 'QUOTE REQUIRED';
+        walletAddress.textContent = walletMap[rail] || '[ADD WALLET ADDRESS]';
+        paymentPanel.hidden = false;
+        checkoutStatus.textContent = 'Crypto payment instructions generated for ' + ref + '. No payment has been processed by this static prototype.';
       });
 
       contactForm.addEventListener('submit', function (event) {
